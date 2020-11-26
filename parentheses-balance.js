@@ -27,7 +27,7 @@ const balancedCheck = str => {
 
     for (let i = 0; i < str.length; i++) {
         let char = str[i];
-        console.log(char, open[char]);
+        // console.log(char, open[char]);
         if (open[char]) {
             stack.push(char);
         } else if (closed[char]) {

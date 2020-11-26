@@ -8,21 +8,20 @@
 // return the result
 
 const removePunc = (str, remove) => {
-    const strArr = str.split("");
-    const removeArr = remove.split("");
+    const strArr = str.split('');
+    const removeArr = remove.split('');
     let result = '';
 
-    removeArr.forEach(toRemove => {
+    removeArr.forEach(punc => {
         strArr.forEach((letter, index) => {
-            if (toRemove === letter) {
-                strArr.splice(index, 1)
+            if (letter === punc) {
+                strArr.splice(index, 1);
             }
         })
-    });
+    })
 
     for (let i = 0; i < strArr.length; i++) {
-        let letter = strArr[i];
-        result = result.concat(letter);
+        result = result.concat(strArr[i]);
     }
 
     return result;

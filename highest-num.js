@@ -1,4 +1,4 @@
-// find the maximum sum in a given sequence
+// find the highest number in an array
 
 // establish two variables for the current max and the max of all numbers in the sequence
 // we'll iterate through the array and track the current max and the max of all
@@ -6,7 +6,7 @@
 // use the Math.max() function to find highest number between the current max or past highest max
 // return variable of max of all
 
-const maxSum = arr => {
+const highestNum = arr => {
     let maxNow = 0;
     let maxAll = 0;
 
@@ -18,6 +18,5 @@ const maxSum = arr => {
     return maxAll;
 };
 
-console.log(maxSum([4, 6, -3, 5, -2, 1]));
-
-// complexity: 0(n) linear
+const arr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]
+console.log(highestNum(arr));

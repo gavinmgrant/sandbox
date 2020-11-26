@@ -7,15 +7,17 @@
 
 const fibonacciR = num => {
     if (num <= 1) {
-        return [0, 1]
+        return [0, 1];
     } else {
-        let series = fibonacciR(num - 1)
-        series.push(series[series.length - 1] + series[series.length - 2])
+        let series = fibonacciR(num - 1);
+        series.push(series[num - 1] + series[num - 2]);
         return series;
     }
-};
+}
 
-console.log(fibonacciR(7));
+console.log(fibonacciR(11));
+// time complexity: O(2^n), exponential
+
 
 // iterative solution to print the fibonacci sequence of a given number
 
@@ -28,11 +30,11 @@ console.log(fibonacciR(7));
 
 const fibonacciI = num => {
     const series = [];
-    for (i = 0; i < num + 1; i++) {
+    for (let i = 0; i < num + 1; i++) {
         if (i === 0) {
-            series.push(0);
+            series.push(0)
         } else if (i === 1) {
-            series.push(1);
+            series.push(1)
         } else {
             series.push(series[i - 1] + series[i - 2]);
         }
@@ -40,4 +42,5 @@ const fibonacciI = num => {
     return series;
 }
 
-console.log(fibonacciI(7));
+console.log(fibonacciI(11));
+// time complexity: O(n), linear

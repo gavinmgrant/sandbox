@@ -2,16 +2,51 @@
 // input '((()))()' returns true
 // input '(())(' returns false
 
-// assign an array (or stack) to a variable
-// assign an object with the open and close parentheses as key/value pairs
-// assign an object with the closed parentheses as keys and true as all the values
-// iterate through the string...
-// if the iteration is an opening bracket, add to stack the closing bracket
-// else if the iteration is a closing bracket, check if the matching closed parentheses of the last element that is popped off the stack is not equal to the current character
-// return false if they are not equal, becuase we have an imbalanced input
+// first, create string constants for opening and closing brackets types
+// create an object matching closing brackets to their corresponding opening bracket
+// create an empty array to act as our stack
+// iterate through each character in the string input, using a for...of statement
+// if character matches one of the opening brackets, add opening bracket to the stack
+// else if character matches on the the closing brackets...
+// ...if the stack is empty, return false
+// ...if the last opening bracket in the stack matches the closing bracket, pop it from the stack, since they're a match
+// ...else return false, because they are not a match
+// if the stack is empty in the end return true, if there are any characters in the stack that means the brackets are imbalanced
 
 // time complexity: O(n) linear
 
+const balancedCheck = str => {
+    const opening = '([{';
+    const closing = ')]}';
+    const matching = {
+        ')': '(',
+        ']': '[',
+        '}': '{'
+    }
+    const stack = [];
+
+    for (const char of str) {
+        if (opening.includes(char)) {
+            stack.push(char);
+        } else if (closing.includes(char)) {
+            if (stack.length == 0) {
+                return false;
+            }
+            if (stack[stack.length - 1] === matching[char]) {
+                stack.pop();
+            } else {
+                return false;
+            }
+        }
+    }
+   
+    return stack.length === 0;
+}
+
+console.log(balancedCheck('(()){}[]'));
+console.log(balancedCheck('()[])'));
+
+/*
 const balancedCheck = str => {
     const stack = [];
     const open = {
@@ -27,7 +62,6 @@ const balancedCheck = str => {
 
     for (let i = 0; i < str.length; i++) {
         let char = str[i];
-        // console.log(char, open[char]);
         if (open[char]) {
             stack.push(char);
         } else if (closed[char]) {
@@ -39,6 +73,4 @@ const balancedCheck = str => {
    
     return stack.length === 0;
 }
-
-console.log(balancedCheck('(()){}[]'));
-console.log(balancedCheck('()[]'));
+*/

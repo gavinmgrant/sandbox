@@ -1,6 +1,6 @@
 // convert a phone number with letters into a phone number sequence
 // example input '1800buycars' should return 18002892277
-// example input '1800turtles' should return 18008878537
+// example input '1800Turtles' should return 18008878537
 
 const toPhoneNum = string => {
     const array = string.toLowerCase().split('')
@@ -35,7 +35,6 @@ const toPhoneNum = string => {
     }
 
     let result = [];
-    console.log(array);
 
     array.forEach(char => {
         if (keypad[char]) {
@@ -49,4 +48,4 @@ const toPhoneNum = string => {
     return result.join('');
 }
 
-console.log(toPhoneNum('1800turtles'));
+console.log(toPhoneNum('1800Turtles'));

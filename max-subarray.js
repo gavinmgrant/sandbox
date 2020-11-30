@@ -3,8 +3,8 @@
 // Output: 6
 // Explanation: [4,-1,2,1] has the largest sum = 6.
 
-// initialize currSum to 0 and maxSum to -Infinity
-// iterate through array
+// initialize currSum to 0 and maxSum to -Infinity to track current max sum while iterating thru array and overall max sum
+// iterate through array in a for loop
 // check if currSum is negative, if so, assign currSum to 0
 // add the value of current array index to currSum
 // check if currSum is greater than maxSum, if so, assign maxSum to currSum

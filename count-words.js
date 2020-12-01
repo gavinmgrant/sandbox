@@ -1,5 +1,5 @@
 // Given a document, implement an algorithm to count the number of word occurrences.
-// Be sure to omit punctuations from your results so 
+// Be sure to omit punctuations from your results so the word count is accurate.
 // - Input: `"Hello there, how are you? Can you tell me how to get to the nearest Starbucks?"`
 // - Output: `Hello = 1, there = 1, how = 2, are = 1, you = 2`
 

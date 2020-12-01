@@ -15,6 +15,24 @@
 const maxSubArray = nums => {
     let currSum = 0;
     let maxSum = -Infinity;
+
+    nums.forEach(num => {
+        currSum = Math.max(0, currSum);
+        currSum += num;
+        maxSum = Math.max(currSum, maxSum)
+    })
+
+    return maxSum;
+}
+
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+console.log(maxSubArray([-2, -6]));
+
+/* version for for loop
+
+const maxSubArray = nums => {
+    let currSum = 0;
+    let maxSum = -Infinity;
     for (let i = 0; i < nums.length; i++) {
         currSum = Math.max(0, currSum);
         currSum += nums[i];
@@ -23,5 +41,4 @@ const maxSubArray = nums => {
     return maxSum;
 }
 
-console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
-console.log(maxSubArray([-2, -6]));
+*/

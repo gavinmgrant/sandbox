@@ -49,3 +49,4 @@ const toPhoneNum = string => {
 }
 
 console.log(toPhoneNum('1800Turtles'));
+// time complexity: O(n), linear

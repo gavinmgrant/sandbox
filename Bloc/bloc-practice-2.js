@@ -106,24 +106,23 @@ class LinkedList {
     // *** SOLUTION IS METHOD BELOW ***
     removeDuplicates() {
         // create a new node to track previous node
-        let rootNode = new _Node(0);
+        let currNode = new _Node(0);
         // assign this list's head as the next node from the new node
-        rootNode.next = this.head;
+        currNode.next = this.head;
         // we need to track the node and node value previous to the nodes we iterate through to find duplicates
-        let currHead = rootNode;
-        let currVal;
-        while (currHead.next !== null) {
-            if (currHead.next.value == currVal) {
+        let currVal = currNode.value;
+        while (currNode.next !== null) {
+            if (currNode.next.value == currVal) {
                 // if next value equal to current value, skip node to remove it
-                currVal = currHead.next.value
-                currHead.next = currHead.next.next
+                currVal = currNode.next.value
+                currNode.next = currNode.next.next
             } else {
                 // if not, iterate to next node in linked list
-                currVal = currHead.next.value;
-                currHead = currHead.next;
+                currVal = currNode.next.value;
+                currNode = currNode.next;
             }
         }
-        return rootNode.next;
+        return currNode;
     }
     // *** SOLUTION IS METHOD ABOVE ***
 };

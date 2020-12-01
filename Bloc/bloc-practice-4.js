@@ -149,7 +149,7 @@ const compareStringValues = (list1, list2) => {
 
     // iterate through both lists while each node it truthy
     while (currNodeA || currNodeB) {
-        // if you get to a point where one node is falsy, they node doesn't exist and return 1
+        // if you get to a point where one node is falsy, the node doesn't exist and return 1
         if (!currNodeA || !currNodeB) {
             return 1;
         }

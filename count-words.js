@@ -4,25 +4,23 @@
 // - Output: `hello = 1, there = 1, how = 2, are = 1, you = 2`
 
 const countWords = str => {
-    const lettersArr = str.toLowerCase().split('');
-
-    lettersArr.forEach((letter, index) => {
+    const strArr = str.toLowerCase().split('');
+    strArr.forEach((letter, index) => {
         if (letter === ',' || letter === '?') {
-            lettersArr.splice(index, 1)
+            strArr.splice(index, 1);
         }
     })
 
-    const strArr = lettersArr.join('').split(' ');
-    let words = {};
-
-    for (let i = 0; i < strArr.length; i++) {
-        if (!words[strArr[i]]) {
-            words[strArr[i]] = 1;
+    const words = {};
+    const wordsArr = strArr.join('').split(' ');
+    wordsArr.forEach(word => {
+        if (!words[word]) {
+            words[word] = 1;
         } else {
-            words[strArr[i]]++
+            words[word]++;
         }
-    }
-    
+    })
+
     return words;
 }
 

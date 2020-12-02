@@ -3,15 +3,16 @@
 // - Input: `"Hello there, how are you? Can you tell me how to get to the nearest Starbucks?"`
 // - Output: `Hello = 1, there = 1, how = 2, are = 1, you = 2`
 
-const countWords = (str) => {
+const countWords = str => {
     const strArr = str.toLowerCase().split('');
-    const words = {};
     strArr.forEach((letter, index) => {
         if (letter === ',' || letter === '?') {
             strArr.splice(index, 1);
         }
     })
-    const wordsArr = strArr.join('');
+
+    const words = {};
+    const wordsArr = strArr.join('').split(' ');
     wordsArr.forEach(word => {
         if (!words[word]) {
             words[word] = 1;
@@ -19,10 +20,12 @@ const countWords = (str) => {
             words[word]++;
         }
     })
+
     return words;
 }
 
 console.log(countWords("Hello there, how are you? Can you tell me how to get to the nearest Starbucks?"));
+// time complexity: O(n)
 
 
 
@@ -157,7 +160,8 @@ console.log(removePunc('What is this? Why are we here? Help!', '?!'));
 
 
 
-// 7.  Given a list of integers find the mode and the frequency of the mode. The mode in a list of numbers is the value that occurs the most often. 
+// 7.  Given a list of integers find the mode and the frequency of the mode. 
+// The mode in a list of numbers is the value that occurs the most often. 
 // If no number in the list is repeated, then there is no mode for the list.
 // - Input: `1, 2, 3, 6, 10, 3, 5, 6, 3, 3`
 // - Output: `Mode = 3, Frequency of mode = 4`

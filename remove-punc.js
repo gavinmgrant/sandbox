@@ -10,6 +10,25 @@
 const removePunc = (str, remove) => {
     const strArr = str.split('');
     const removeArr = remove.split('');
+
+    removeArr.forEach(punc => {
+        strArr.forEach((letter, index) => {
+            if (letter === punc) {
+                strArr.splice(index, 1);
+            }
+        })
+    })
+
+    return strArr.join('');
+}
+
+console.log(removePunc('What is this? Why are we here? Help!', '?!'));
+
+
+/*
+const removePunc = (str, remove) => {
+    const strArr = str.split('');
+    const removeArr = remove.split('');
     let result = '';
 
     removeArr.forEach(punc => {
@@ -26,5 +45,4 @@ const removePunc = (str, remove) => {
 
     return result;
 }
-
-console.log(removePunc('What is this? Why are we here? Help!', '?!'));
+*/

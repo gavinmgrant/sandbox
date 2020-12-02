@@ -17,9 +17,9 @@ const maxSubArray = nums => {
     let maxSum = -Infinity;
 
     nums.forEach(num => {
-        currSum = Math.max(0, currSum);
         currSum += num;
-        maxSum = Math.max(currSum, maxSum)
+        currSum = Math.max(0, currSum);
+        maxSum = Math.max(currSum, maxSum);
     })
 
     return maxSum;

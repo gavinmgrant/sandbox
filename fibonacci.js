@@ -30,7 +30,7 @@ console.log(fibonacciR(11));
 
 const fibonacciI = num => {
     const series = [];
-    for (let i = 0; i < num + 1; i++) {
+    for (let i = 0; i <= num; i++) {
         if (i === 0) {
             series.push(0)
         } else if (i === 1) {

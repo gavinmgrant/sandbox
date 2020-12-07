@@ -5,6 +5,28 @@
 
 function caesarCipherEncryptor(string, key) {
     const stringArr = string.toLowerCase().split("");
+    // in case the key is a large number, use remainder operator (%) to return remainder left over when key is divided by 26. 
+	key = key % 26;
+	const result = [];
+	for (let i = 0; i < stringArr.length; i++) {
+		let letterIndex = stringArr[i].charCodeAt(0);
+		let newIndex = letterIndex + key;
+		if (newIndex <= 122) {
+			newIndex = newIndex;
+		} else {
+			newIndex = 96 + newIndex % 122;
+		}
+		let newLetter = String.fromCharCode(newIndex);
+		result.push(newLetter);
+	}
+	return result.join("");
+}
+
+console.log(caesarCipherEncryptor("xyz", 2));
+
+/*
+function caesarCipherEncryptor(string, key) {
+    const stringArr = string.toLowerCase().split("");
     const result = [];
     if (key > 26) {
         key = key - 26;
@@ -20,5 +42,4 @@ function caesarCipherEncryptor(string, key) {
 	}
 	return result.join("");
 }
-
-console.log(caesarCipherEncryptor("xyz", 2));
+*/
